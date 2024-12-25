@@ -1,0 +1,59 @@
+potd -6
+
+🔸 Task 1: [Number of Laser Beams in a Bank](https://leetcode.com/problems/number-of-laser-beams-in-a-bank/description/)
+// by me brute force - 
+//complexity => traverse : r*c , count1 : max - r
+// r*c + r => O(r*c) .
+class Solution {
+public:
+    int numberOfBeams(vector<string>& bank) {
+        int r = bank.size(), c = bank[0].size();
+        vector<int> count1; // to get count of 1 in each row.
+
+        for (int i = 0; i < r; i++) {
+            int cnt = 0;
+            for (int j = 0; j < c; j++) {
+                if (bank[i][j] == '1') {
+                    cnt++;
+                }
+            }
+            if (cnt > 0) {
+                count1.push_back(cnt);
+            }
+        }
+        
+        // let count1 me 3,2,1 then ,ans= 3*2 + 2*1 ;
+        // size =3 , index = (0,1),(1,2)  // 2 only = size-1
+
+        int ans=0;
+        // edge case  , if count has 0 & 1 element only .
+        if(count1.size()<2){
+            return 0;
+        }
+        // other normal cases.
+        for(int i=0;i<count1.size()-1;i++){
+            ans+= count1[i]*count1[i+1];
+        }
+
+        return ans;
+    }
+};
+🔸 Task 2: [Trailing Zeros](https://cses.fi/problemset/task/1618)
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{   
+    int n;
+    cin>>n;
+    int count=0;
+    int i=1;
+    while(pow(5,i)<= n){
+        count+= n/pow(5,i++);
+    }
+    cout<<count;
+
+    return 0;
+}
+
