@@ -1,0 +1,30 @@
+🎯 Problem of the Day (POTD #14)
+📆 Date: 03/01/2025
+@everyone
+
+🔸 Task 1: [Minimum Platforms](<https://www.geeksforgeeks.org/problems/minimum-platforms-1587115620/1>)
+🔸 Task 2: [Count Subsequences](<https://codeforces.com/problemset/problem/1582/B>)
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t ; 
+    cin>>t ; // no. of testcase
+   
+    for(int i=1;i<=t;i++){
+        int n ; // no . of elements in it .
+        cin>>n;
+        vector<int> a(n);
+        int one =0 ,zero = 0; // subsequences.
+        for(int j=0;j<n;j++){
+            cin>>a[j];
+            if(a[j]==1)one++ ; 
+            if(a[j]==0)zero++;
+        }
+        //long long result = one * (1LL << zero);
+        
+        cout<<result<<endl;
+    }
+    return 0;
+   
+}
