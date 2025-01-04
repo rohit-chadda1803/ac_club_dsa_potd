@@ -1,0 +1,52 @@
+🎯 Problem of the Day (POTD #15)
+📆 Date: 04/01/2025
+@everyone
+
+🔸 Task 1: [Minimum Number of Operations to Move Balls](https://leetcode.com/problems/minimum-number-of-operations-to-move-all-balls-to-each-box/description/)
+// Time: O(N)
+// Space: O(1)
+class Solution {
+public:
+    vector<int> minOperations(string s) {
+        int N = s.size(), sum = 0, right = 0, left = 0;
+        vector<int> ans(s.size());
+        for (int i = 0; i < N; ++i) {
+            if (s[i] == '1') sum += i, ++right;
+        }
+        for (int i = 0; i < N; ++i) {
+            ans[i] = sum;
+            if (s[i] == '1') right--, left++;
+            sum += left - right;
+        }
+        return ans;
+    }
+};
+🔸 Task 2: [Remove Colored Pieces](https://leetcode.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/description/)
+
+React with the numbers 1️⃣, 2️⃣ when you've completed the tasks.
+
+class Solution {
+public:
+    bool winnerOfGame(string colors) {
+        int n = colors.size();
+        vector<bool> available(n,true);
+        int alice=0 , bob=0; 
+        
+        n = colors.size();
+        for(int i =1 ; i<n-1;i++){
+            if(colors[i-1]==colors[i]&&colors[i]==colors[i+1]){
+                if(colors[i]=='A'){
+                    alice+=1 ;
+                }
+                else{
+                    bob+=1;
+                }
+                
+            }
+        }
+        return (alice>bob);
+            
+      
+        return true;
+    }
+};
